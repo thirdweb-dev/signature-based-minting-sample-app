@@ -3,7 +3,7 @@ import { Flex } from "@chakra-ui/react";
 
 const Layout: React.FC = ({ children }) => {
   return (
-    <Flex flexDir={"column"}>
+    <Flex flexDir={"column"} padding={6}>
       <ConnectWallet></ConnectWallet>
       {children}
     </Flex>
