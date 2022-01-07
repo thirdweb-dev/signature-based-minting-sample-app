@@ -1,8 +1,11 @@
 import { Button, Flex, Heading, Text } from "@chakra-ui/react";
+import { useRouter } from "next/dist/client/router";
 import useProtectedPage from "../hooks/useProtectedPage";
 
 export default function Home() {
   useProtectedPage();
+
+  const router = useRouter();
 
   return (
     <Flex flexDir="column" alignContent="center" textAlign="center">
@@ -22,9 +25,13 @@ export default function Home() {
         }}
         justifyContent="center"
       >
-        <Button colorScheme="blue">Creator</Button>
+        <Button colorScheme="blue" onClick={() => router.push("creator")}>
+          Creator
+        </Button>
 
-        <Button colorScheme="green">Claimer</Button>
+        <Button colorScheme="green" onClick={() => router.push("claimer")}>
+          Claimer
+        </Button>
       </Flex>
     </Flex>
   );
