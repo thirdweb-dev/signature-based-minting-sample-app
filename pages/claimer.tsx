@@ -8,7 +8,6 @@ import {
   Textarea,
   useToast,
 } from "@chakra-ui/react";
-import { Sign } from "crypto";
 import { useCallback, useMemo, useState } from "react";
 import useSdk from "../hooks/useSdk";
 
@@ -44,6 +43,7 @@ export default function Claimer() {
 
       <Heading size="sm">Payload</Heading>
       <Textarea
+        minHeight="300px"
         onChange={(ev) => {
           const text = ev.target.value;
           if (!text.length) {
@@ -71,6 +71,7 @@ export default function Claimer() {
       <Input onChange={(ev) => setSignature(ev.target.value)}></Input>
 
       <Button
+        marginTop={2}
         colorScheme="green"
         onClick={mint}
         disabled={
