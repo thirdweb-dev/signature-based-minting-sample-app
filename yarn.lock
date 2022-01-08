@@ -35,10 +35,10 @@
     framer-motion "^5.3.0"
     react-icons "^4.3.1"
 
-"@3rdweb/sdk@^1.32.2":
-  version "1.32.3"
-  resolved "https://registry.yarnpkg.com/@3rdweb/sdk/-/sdk-1.32.3.tgz#6969582067260f2f38f4519e115a8716ac7a5d30"
-  integrity sha512-Y3WEqc8KNOsdRMUul4kiNHU3bTifzcpwoIiI4RSmMYiWtzEJ5F7mnYjd3h/W9yuJ2708X2hfOLwR+CKwWzcRUQ==
+"@3rdweb/sdk@^1.32.4":
+  version "1.32.4"
+  resolved "https://registry.yarnpkg.com/@3rdweb/sdk/-/sdk-1.32.4.tgz#9559495cd088921fe67a82cf71e55f9264a4efc7"
+  integrity sha512-cWpE5BQLL0r5B7d6KCJUm+JmWTdcefHql5063zu4zaJh4DuBeGs6RuVLl8IrvlA3hSOF6vJifLNFFe9aJvmcsQ==
   dependencies:
     "@3rdweb/contracts" "^1.21.1"
     "@ethersproject/bignumber" "^5.5.0"

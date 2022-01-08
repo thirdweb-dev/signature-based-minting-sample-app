@@ -12,6 +12,7 @@ import { useCallback, useMemo, useState } from "react";
 import useSdk from "../hooks/useSdk";
 
 export default function Claimer() {
+  const [loading, setLoading] = useState(false);
   const sdk = useSdk();
   const toast = useToast();
 
@@ -73,7 +74,20 @@ export default function Claimer() {
       <Button
         marginTop={2}
         colorScheme="green"
-        onClick={mint}
+        onClick={async () => {
+          setLoading(true);
+          try {
+            await mint();
+          } catch (err: any) {
+            toast({
+              status: "error",
+              title: "Error minting NFT",
+              description: err.message,
+            });
+          }
+          setLoading(false);
+        }}
+        isLoading={loading}
         disabled={
           signature === undefined || payload === undefined || signature === ""
         }
