@@ -17,7 +17,7 @@ export default function Creator() {
   const toast = useToast();
 
   const module = useMemo(
-    () => sdk.getNFTModule("0xc335111d58913C6A382F40c8B020b4ff1ee13Ba1"),
+    () => sdk.getNFTModule("0x66BE3c29cC181D5bFCBa6cf872f27057c5C98316"),
     [sdk]
   );
 
