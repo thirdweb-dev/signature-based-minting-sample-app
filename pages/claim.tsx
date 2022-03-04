@@ -1,6 +1,6 @@
 import { useSwitchNetwork, useWeb3 } from "@3rdweb/hooks";
 import { ConnectWallet } from "@3rdweb/react";
-import { Box, Button, Flex, Heading, Text, useToast } from "@chakra-ui/react";
+import { Button, Flex, Heading, useToast } from "@chakra-ui/react";
 import { SignedPayload } from "@thirdweb-dev/sdk";
 import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
@@ -37,9 +37,16 @@ export default function ClaimCode() {
 
   const isValid = useClaimStatus(code);
 
-  const expired = Number((code?.payload.mintEndTime as any).hex);
+  const expired = code
+    ? Math.floor(Date.now() / 1000) >
+      parseInt((code?.payload.mintEndTime as any).hex, 16)
+    : false;
 
   const claim = useCallback(async () => {
+    if (!code) {
+      return;
+    }
+
     if (80001 !== chainId) {
       await switchNetwork(80001 as number);
     }
@@ -47,7 +54,7 @@ export default function ClaimCode() {
     await module?.signature.mint(code);
   }, [chainId, sig, module, switchNetwork, code]);
 
-  if (!isValid || Math.floor(Date.now() / 1000) > expired) {
+  if (!isValid || expired) {
     return (
       <Flex mt={2} flexDir={"column"} m={12}>
         <Heading size={"lg"} color="red" textAlign={"center"}>

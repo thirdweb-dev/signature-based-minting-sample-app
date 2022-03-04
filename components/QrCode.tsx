@@ -14,15 +14,12 @@ export default function QrCode({ sig }: { sig: SignedPayload }) {
   const [qrCodeData, setQrCodeData] = useState<string>("");
 
   useEffect(() => {
-    if (qrCodeData !== "") {
-      return;
-    }
-
     (async () => {
       const data = await QRCode.toDataURL(claimLink);
+      console.log("Generating new qr data");
       setQrCodeData(data);
     })();
-  }, [claimLink, qrCodeData]);
+  }, [claimLink, qrCodeData, sig]);
 
   return (
     <Flex flexDir={"column"} mt={4} alignItems="center">
