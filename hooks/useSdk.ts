@@ -1,11 +1,11 @@
 import { useWeb3 } from "@3rdweb/hooks";
-import { ThirdwebSDK } from "@3rdweb/sdk";
-import { Signer } from "ethers";
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import { ethers, Signer } from "ethers";
 
 export default function useSdk() {
   const { provider } = useWeb3();
 
-  const sdk = new ThirdwebSDK(provider?.getSigner() as Signer);
+  const sdk = new ThirdwebSDK(ethers.getDefaultProvider(provider?.chainId));
 
   return sdk;
 }
