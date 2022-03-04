@@ -32,7 +32,9 @@ export default function QrCode({ sig }: { sig: SignedPayload }) {
       </Heading>
 
       <Box maxW={"400px"} width={"400px"} mb={8}>
-        <img src={qrCodeData}></img>
+        <a href={claimLink} target="_blank">
+          <img src={qrCodeData}></img>
+        </a>
       </Box>
     </Flex>
   );
