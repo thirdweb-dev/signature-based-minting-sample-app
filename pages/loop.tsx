@@ -1,5 +1,6 @@
 import { Box, Flex, Heading, Progress, Spinner, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import Loading from "../components/Loading";
 import QrCode from "../components/QrCode";
 import useNewQr from "../hooks/useNewQr";
 import useRefreshInterval from "../hooks/useRefreshInterval";
@@ -26,11 +27,7 @@ export default function LoopPage() {
     100 - Math.floor((secondsLeft / NEXT_PUBLIC_REFRESH_IN_MS) * 100);
 
   if (!signedPayload) {
-    return (
-      <Flex>
-        <Spinner color="white" size={"lg"} />
-      </Flex>
-    );
+    return <Loading />;
   }
 
   return (
