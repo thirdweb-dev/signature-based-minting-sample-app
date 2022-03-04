@@ -3,18 +3,18 @@ import { ethers } from "ethers";
 import { NextApiRequest, NextApiResponse } from "next";
 import { generateSignature } from "../../lib/generateSignature";
 
-const RPC_URL = process.env.RPC_URL as string;
+const NEXT_PUBLIC_RPC_URL = process.env.NEXT_PUBLIC_RPC_URL as string;
 const NEXT_PUBLIC_CONTRACT_ADDRESS = process.env
   .NEXT_PUBLIC_CONTRACT_ADDRESS as string;
 
 const sdk = new ThirdwebSDK(
   new ethers.Wallet(
     process.env.PKEY as string,
-    ethers.getDefaultProvider(RPC_URL)
+    ethers.getDefaultProvider(NEXT_PUBLIC_RPC_URL)
   ),
   {
     readonlySettings: {
-      rpcUrl: RPC_URL,
+      rpcUrl: NEXT_PUBLIC_RPC_URL,
     },
   }
 );
