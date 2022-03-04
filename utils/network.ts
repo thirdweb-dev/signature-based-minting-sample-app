@@ -36,5 +36,6 @@ export const alchemyUrlMap: Record<SupportedChainId, string> = {
   [SupportedChainId.Avalanche]: "https://api.avax.network/",
   [SupportedChainId.Polygon]:
     "https://polygon-mainnet.g.alchemy.com/v2/lsckH2xYSKeVX3Lkyxn5pFToiZT_5hQx",
-  [SupportedChainId.Mumbai]: `https://rpc-mumbai.maticvigil.com`,
+  [SupportedChainId.Mumbai]:
+    "https://polygon-mumbai.g.alchemy.com/v2/lsckH2xYSKeVX3Lkyxn5pFToiZT_5hQx",
 };
